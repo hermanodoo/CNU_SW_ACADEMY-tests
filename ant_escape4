@@ -1,0 +1,62 @@
+'''Follow the comments'''
+# this is version 4, the last of our ant_escape's
+# our hero's and escape's location is arbitrary
+# we have M numbers of punches to punch through walls
+# to make matters worse there's monster & lurking in the maze!
+# typical maze looks like this O&#@##.O
+
+# for test case T, we take inputs of
+# length, punches, maze, attack power and health of both hero and monster
+# then crop left and right side of the hero and reverse the left maze for eaiser checkup
+
+T = int(input())
+
+for _ in range(T):
+    l, M = map(int, input().split())  # punches
+    S = input()  # maze
+    S = [i for i in S]
+    atk_j, hp_j = map(int, input().split())
+    atk_m, hp_m = map(int, input().split())
+
+    js = S.index('@') #js index
+    L = S[:js] #left half
+    R = S[js + 1:] #right half
+    L.reverse() #flip the left
+
+    # check if there's a exit in the half
+    # check if there's enough punches
+    # check if monster is beatable
+    # # at the end of the day, we will be screaming HELP! or HAHA!
+
+    def check(half, punches, hp_j, hp_m, atk_j, atk_m):
+        # if the half has exit
+        if half.count('O'):
+            for i in half:
+                # if index is exit
+                if i == 'O':
+                    return True
+                # if index is wall
+                elif i == '#':
+                    punches -= 1
+                    if punches < 0:
+                        return False
+                # if index is monster
+                elif i == '&':
+                    while 1:
+                        hp_m -= atk_j
+                        if hp_m <= 0:
+                            break
+                        hp_j -= atk_m
+                        if hp_j <= 0:
+                            return False
+                # if index dot
+                else:
+                    continue
+        # if maze has no exit
+        else:
+            return False
+
+    if check(L, M, hp_j, hp_m, atk_j, atk_m) or check(R, M, hp_j, hp_m, atk_j, atk_m):
+        print("HAHA!")
+    else:
+        print("HELP!")
