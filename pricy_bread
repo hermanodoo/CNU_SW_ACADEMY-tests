@@ -1,0 +1,18 @@
+'''Follow the comments'''
+# make empty lists for bread and prices for the breads
+bread = list()
+price = list()
+
+#we will check two bread and their prices
+for i in range(2):
+    bread.append(input())
+    price.append(int(input()))
+#if both bread's names same, we will get first item in the prices
+if bread[0] == bread[1]:
+    print(price[0])
+#else we will print out pricy one
+else:
+    if price[0] > price[1]:
+        print(bread[0])
+    else:
+        print(bread[1])
