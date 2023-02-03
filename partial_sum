@@ -1,0 +1,29 @@
+"""follow the comments to see how this code works"""
+
+#input a : create a array of given size, however you don't need to
+#input b : take in set of numbers to fill up the empty array
+#input c : how many times will program take in number pairs
+
+
+a = int(input())
+#print(a) ##check if initiation of array is done
+
+main_array = list(map(int, input().strip().split()))
+#print(main_array) ##check if updating main_array is done
+
+b = int(input()) #gets number of time program will take range number pairs
+#print(c) #check b
+
+sum_array = list()
+#print(sum_array) ##check if empty array is created
+
+for _ in range(b):
+    SUMMED = 0 #for each loop initialize sum for every range pair input
+    d = list(map(int, input().strip().split())) #take in pair of numbers of range
+    while d[0] <= d[1]:
+        SUMMED += main_array[d[0] - 1]
+        d[0] += 1
+    sum_array.append(SUMMED) #append final sum of each loop to final array
+
+for i in range(b):
+    print(sum_array[i])
