@@ -2,6 +2,7 @@
 # this is version 2 of our previous ant_escape2
 # this time our hero's and escape's location is arbitrary
 # also we have M numbers of dynamite to punch through walls
+# typical maze looks like this : .O#..@.
 
 
 # for test case T, we will check indices of each of hero and exit
