@@ -1,0 +1,38 @@
+'''Follow the comments'''
+# this is version 2 of our previous ant_escape2
+# this time our hero's and escape's location is arbitrary
+# also we have M numbers of dynamite to punch through walls
+
+
+# for test case T, we will check indices of each of hero and exit
+# then crop the part, starting from hero to exit in the maze
+# then see if there's wall if not we will escape
+# when we do escape we're happy so scream HAHA!
+# if we can't we cry for HELP!
+
+T = int(input())
+
+for _ in range(T):
+    N, M = map(int, input().split())
+    S = input()
+    js = S.index('@')
+    out = S.index('O')
+    if out < js:
+        front_S = S[exit:js]
+        wall = front_S.count("#")
+
+        if wall <= M:
+            print("HAHA!")
+        else:
+            print("HELP!")
+
+    #if exit on the farthest right
+    else:
+        back_S = S[js:exit]
+        wall = back_S.count("#")
+
+        if wall <= M:
+            print("HAHA!")
+        else:
+            print("HELP!")
+            
