@@ -1,0 +1,31 @@
+'''Follow the comments'''
+#take maze as string, strip any trailing empty spaces
+#maze looks like this @..#..O
+#@ is always on far left and is our hero
+#O is always on far right and is our exit
+
+maze = input().strip()
+#our hero has only one punch to break a wall
+punch = 1
+#let's set length as length of our maze
+length = len(maze)
+
+#this loop is to check if our hero can escape
+#if there's less or equal to one wall, we can punch it through
+#if we're able to get to the end index of the string, we escape and HAHA!
+#otherwise we can't so we cry out for HELP!
+
+for i in range(length):
+    if maze[i] == '#':
+        if punch == 1:
+            punch = 0
+            continue
+        else:
+            print('HELP!')
+            break
+    else:
+        if i != length - 1:
+            continue
+        else:
+            print('HAHA!')
+            break
