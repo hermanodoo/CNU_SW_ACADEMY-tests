@@ -1,0 +1,61 @@
+'''Follow the comments'''
+
+# this problem about selling stocks
+# then we get inputs of N, M, K then A
+
+# N: array length, M: min increment, K: the day our hero bought the stock (index 0 == day 1)
+# A: array of stock prices over periods
+
+# we are going to sell the stock when starting stock rises minimum value of M, we will sell it
+# we need to find how many days it took to sell it and get MONEY!!!
+# if we can sell it we print out the glorious day OR if we can't we print out 'The Day will come'
+
+# this has two versions, first is just cropping the array and checking if there's a value bigger or equal to exit_val
+
+T = int(input())
+
+for _ in range(T):
+    N, M, K = map(int, input().split()) 
+    A = list(map(int, input().split())) 
+    
+    out_val = int(A[K-1]) + int(M) #get the minimum stock price to escape   
+    
+    before = A[:K] #get the first half where ends before the given price
+    after = A[K:] #get the second half after second price
+    #print('1st half', before)
+    #print('2nd half', after)
+    
+    #gotta check in after list, whether it contains our out_val
+    bigger = [i for i in after if i >= out_val]
+    
+    #bigger is an empty value, you can't escape
+    if not bigger:
+        print('The Day will come')
+    #if there is an escape point
+    else:
+        #where is the index of escaping?
+        #we refer to the first item in bigger array
+        exit_pt = after.index(bigger[0]) #get the index 
+        gtfo = len(before) + exit_pt + 1
+        print(gtfo)
+        
+        
+# 2nd one is about iteration
+# iterating to check if there's a value bigger than exit_val
+
+T = int(input())
+
+for _ in range(T):
+    N, M, K = map(int, input().split()) 
+    A = list(map(int, input().split())) 
+    
+    out_val = int(A[K-1]) + int(M) #get the minimum stock price to escape
+    t = 0  # we will use t to keep track of current index
+    for i in range(K-1, len(A)): # starting from the day of buying stock to end
+        if A[i] >= out_val: # we will print out the day only if out_val exceeds the price of current stock
+            print(i + 1)
+            break
+        t = i
+    if t == len(A)-1: # if not we will 
+        print('The Day will come')
+            
