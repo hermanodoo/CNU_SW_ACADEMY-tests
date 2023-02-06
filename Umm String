@@ -1,0 +1,74 @@
+'''Follow the comments'''
+# we will check if strings being inputted are Umm strings
+# that is if we get the input, crop it from given indices
+# we will see if it's three letter word 'Umm'
+# m's have to be two at least and there could be more
+# if it is we will printout YES and if no print out NO
+# there are two versions of this, 
+
+# typical inputs would be
+'''
+6
+4
+UmmU
+1 3
+3
+mmU
+1 3
+7
+UmmmUmm
+1 4
+1
+U
+1 1
+5
+mmUmm
+3 5
+6
+UmmUmm
+1 6
+
+'''
+
+
+#1st version just crops the string first then check
+
+T = int(input())
+
+for _ in range(T):
+    n = input()
+    S = input()
+    A, B = map(int, input().split())
+    cropped = S[A-1:B]
+    
+    if cropped[:3] == 'Umm':
+        back = cropped[3:]
+        if back.count('U') != 0:
+            print('NO')
+        else:
+            print('YES')
+    else:
+        print('NO')
+        
+  
+# second version check if inputted indices have difference of 2
+# if so we will crop the string to check if it's Umm+ string
+# we will count numbers of character 'U' in the string
+# next we will findall the string which starts with U then has at least 2 m following
+# if each condition is 1 and multiplying both equals also 1, we will return YES if not NO
+
+import re
+
+T = int(input())
+for _ in range(T):
+    n = input()
+    S = input()
+    A, B = map(int, input().split())
+    if (B-A) >= 2:
+        cropped = S[A-1:B]
+        y = cropped.count('U')
+        z = len(re.findall("\AUmm+", cropped))
+        print('YES' if y*z == 1 else 'NO')
+    else:
+        print('NO')
+        
