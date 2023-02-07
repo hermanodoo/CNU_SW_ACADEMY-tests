@@ -1,3 +1,3 @@
 # CNU_SW_ACADEMY-tests
 
-## Solution for Daily Code Tests provided by curriculum
+## Solution for Daily Code Tests provided by the curriculum
