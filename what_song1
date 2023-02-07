@@ -1,0 +1,63 @@
+'''Follow the comments'''
+# this is program for checking what song is playing currently
+# given number of songs N
+# then given songs in order of play list
+# then given songs' playtime for each songs
+# then for M times check what song is playing currently
+
+# example is as followed
+# 5 -> N
+# Killer Queen
+# Moonlight
+# Nxde
+# Break My Soul
+# Memory Lane
+# 180
+# 170
+# 150
+# 172
+# 182
+# 5 -> M
+# 10
+# 200
+# 250
+# 501
+# 690
+
+
+N = int(input()) #number of songs on play_list
+
+song_list = list()
+for _ in range(N): #making a song list
+    song_list.append(input())
+
+time_list = list() 
+for _ in range(N): #making a time list
+    time_list.append(int(input()))
+    
+#make a new array of adding 1 to compensate for the requirements
+#print(time_list)
+
+summed = 0
+
+for i in range(len(time_list)):
+    summed += time_list[i]
+    time_list[i] = summed
+
+#times of input of seconds of songs
+M = int(input())
+result = list()
+
+for _ in range(M):
+    #get the time stamps for each loop
+    time_stamp = int(input())
+    
+    for i in time_list:
+    #find item in time_list_plus which is less or equal to time_stamp
+        if time_stamp <= i:
+            ind = time_list.index(i)
+            print(song_list[ind])
+            break
+        else:
+            continue
+            
