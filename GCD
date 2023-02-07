@@ -1,0 +1,24 @@
+'''Follow the comments'''
+# some math genius is mistaking a*b as least common multiples
+# however some times lcd == a*b
+# so when he's right he gets pat on the back with "Perfect"
+# if not gets scolded with "Not even close"
+# i used eucldian algorithm to get the gcd first
+# since lcm is gcd * a * b
+
+import sys
+
+for _ in range(int(input())):
+    a, b = map(int, sys.stdin.readline().split())
+    ma = max(a,b)
+    mi = min(a,b)
+    while mi:
+        ma, mi = mi, ma % mi
+        gcd = ma
+    lcm = (a*b) // gcd
+    
+    if lcm == a*b:
+        print("Perfect")        
+    else:      
+        print("Not even close")
+        
