@@ -1,0 +1,102 @@
+'''Follow the comments'''
+# our hero is stuck in a maze 
+# maze is actually a matrix, increasing from 1, to right and down
+# he is actually an avatar, being the conduit of our will
+# we provide him with L,R,U,D for left, right, up, and down
+# he will move accordingly
+# he is marked as '@' and there are walls which are marked by '#'
+# outputs should be the his coordinate after the last move he made
+
+# typical inputs should be as follows
+
+'''6
+5 5
+@....
+####.
+.....
+.####
+.....
+16
+RRRRDDLLLLDDRRRR
+3 4
+#.##
+#...
+#..@
+4
+LLUU
+3 8
+.......@
+###..###
+........
+10
+LDDLLDLLDR
+3 3
+.#.
+#@#
+.#.
+4
+LRUD
+4 5
+@#.#.
+.#.#.
+.###.
+.....
+10
+URRDDLDRRR
+2 2
+@.
+..
+9
+RDLURRDLU'''
+
+# outputs should be
+
+'''5 5
+1 2
+3 5
+2 2
+4 4
+1 1'''
+
+# for test cases of T
+T = int(input())
+
+for _ in range(T):
+    n, m = map(int, input().split())
+    maze = list()
+    for _ in range(n):
+        maze.append(list(input()))
+    move_num = int(input())
+    moves = input()
+    
+    #hero's original coordinate
+    for i in range(n):
+        for j in range(m):
+            z = maze[i][j].find('@')
+            if z >= 0:
+                x, y = i, j
+
+    #move hero
+    for i in range(move_num):
+        move = moves[i]
+        if move == 'R':
+            if y+1 == m or maze[x][y+1] == '#':
+                continue
+            else:
+                y += 1
+        elif move == 'L':
+            if y-1 < 0 or maze[x][y-1] == '#':
+                continue
+            else:
+                y -= 1
+        elif move == 'U':
+            if x-1 < 0 or maze[x-1][y] == '#':
+                continue
+            else:
+                x -= 1
+        else: # down
+            if x+1 == n or maze[x+1][y] == '#':
+                continue
+            else:
+                x += 1        
+    print(x+1, y+1)
