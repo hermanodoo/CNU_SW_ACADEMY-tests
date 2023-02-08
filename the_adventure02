@@ -1,0 +1,128 @@
+'''Follow the comments'''
+# this is version 2.0 of previous the_adventure01
+# WARNING there are thorns growing in the maze 
+# if our hero steps on it, his HP gets damaged
+# he's represented by '@', walls as '#', and thorns as '^'
+# output should be his x coordinate, y coordinate, and damages he took
+
+# typical input should be
+
+'''6
+5 5
+@...^
+####.
+^...^
+.####
+^...^
+16
+RRRRDDLLLLDDRRRR
+3 4
+#.##
+#^@^
+#.^.
+4
+LLUU
+3 8
+.......@
+###^^###
+........
+10
+LDDLLDLLDR
+3 4
+.##.
+#@^#
+.##.
+8
+LRLRLRUD
+4 5
+@#^#.
+.#^#.
+.###.
+....^
+10
+URRDDLDRRR
+4 4
+####
+#@^#
+#^^#
+####
+9
+RDLURRDLU'''
+
+# typical outputs
+
+'''5 5 5
+1 2 2
+3 5 3
+2 3 5
+4 4 0
+2 2 7'''
+
+# for test cases T
+T = int(input())
+
+for _ in range(T):
+    n, m = map(int, input().split())
+    maze = list()
+    
+    # make the maze
+    for i in range(n):
+        row = [i for i in input()]
+        maze.append(row)
+        
+    # find hero
+    for i in range(n):
+        for j in range(m):
+            if maze[i][j] == '@':
+                x, y = i, j
+        
+    # moves and reset damage
+    move_num = int(input())
+    moves = input()
+    dmg = 0
+    
+    # move through maze
+    for i in range(move_num):
+        #print(moves[i], 'i', i, 'x', x, 'y', y, maze[x][y], dmg)
+        
+        if moves[i] == 'R':
+            y+=1
+            if y == m or maze[x][y] == "#":
+                y-=1
+                if maze[x][y] == "^":
+                    dam += 1
+            else:
+                if maze[x][y] == "^":
+                    dam += 1
+                    
+        elif moves[i] == 'L':
+            y-=1
+            if y < 0 or maze[x][y] == "#":
+                y+=1
+                if maze[x][y] == "^":
+                    dam += 1
+            else:
+                if maze[x][y] == "^":
+                    dam += 1
+                    
+        elif moves[i] == 'U':
+            x-=1
+            if x < 0 or maze[x][y] == "#":
+                x+=1
+                if maze[x][y] == "^":
+                    dam += 1
+            else:
+                if maze[x][y] == "^":
+                    dam += 1
+                    
+        else: # Down
+            x+=1
+            if x == n or maze[x][y] == "#":
+                x-=1
+                if maze[x][y] == "^":
+                    dam += 1
+            else:
+                if maze[x][y] == "^":
+                    dam += 1
+                    
+    print(x+1, y+1, dam)
