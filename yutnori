@@ -1,0 +1,18 @@
+'''Follow the comments'''
+# this program based on Korean Folk Play Yutnori
+# https://en.wikipedia.org/wiki/Yut
+
+yut = input()
+b = yut.count('0')
+f = yut.count('1')
+
+if f == 1:
+    print(1)
+elif f == 2:
+    print(2)
+elif f == 3:
+    print(3)
+elif f == 4:
+    print(4)
+else:
+    print(5)
