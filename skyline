@@ -1,0 +1,32 @@
+'''Follow the comments'''
+# group of buildings form skyline in the big city
+# however it differs on where you're look at from
+# if there's a big building hiding all the other smaller ones
+# you'll only see big building
+# if there are smaller buildings infront of big building
+# you'll able to see all the buildings
+# find out number of buildings you can see from left
+# and number of buildings you can see from right
+
+# input
+# 7
+# 1 4 2 5 3 7 1
+
+# output
+# 4 2
+
+N = int(input())
+S = list(map(int, input().split()))
+S_rev = list(reversed(S))
+
+def building(array):
+    tallest = 0
+    c = 0
+    for i in array:
+        if i > tallest:
+            c += 1
+            tallest = i
+        else:
+            continue
+    return c
+print(building(S), building(S_rev))
