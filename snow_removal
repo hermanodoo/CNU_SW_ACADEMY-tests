@@ -1,0 +1,43 @@
+'''Follow the comments'''
+# Today is the first snow of the year!
+# However Jimmy gotta shovel all the snow in the yeard else no supper for today
+# the yard is square (n x n) and dad told him to clear only little patch 
+# for the input you're given length of the yard and the
+# start and end coordinate of the patch
+# print out the yard after hefty shoveling
+# snow is marked by '*' and cleand patch is represented as '.'
+
+# input
+
+'''
+5
+2 3 5 4
+'''
+
+# output
+
+'''
+****
+**..*
+**..*
+**..*
+**..*
+'''
+
+N = int(input())
+
+yard = list()
+
+for _ in range(N):
+    yard.append(['*' for _ in range(N)])
+
+a, b, c, d = map(int, input().split())
+
+for i in range(min(a, c)-1, max(a, c)):
+    for j in range(min(b, d)-1, max(b, d)):
+        yard[i][j] = '.'
+
+for i in range(N):
+    print(''.join(yard[i]))
+
+
