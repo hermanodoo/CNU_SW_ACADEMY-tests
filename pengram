@@ -1,0 +1,16 @@
+'''Follow the comments'''
+# a string is given and find out whether it's pengram or not
+# string may contain uppercase, lowercase and empty spaces
+# if it is pengram print YES if not print NO
+
+# input
+The Quick Brown Fox Jumps Over The Lazy Dog
+
+# out
+YES
+
+a = [chr(i) for i in range(65, 91)]
+s = ''.join(input().upper().split())
+s = set([i for i in s])
+t = [i for i in a if i not in s]
+print('YES' if len(t) == 0 else 'NO')
