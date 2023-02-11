@@ -1,0 +1,23 @@
+'''Follow the comments'''
+# this time we will make lipogram
+# lipogram is where not every word in alphabet is used
+# the string is given may contain uppercase, lowercase, or empty space
+# input would be a string
+# output is either YES or NO followed by letters that didn't show up in alphabetical order
+
+# input
+'''
+Bubble sort Quick sort Merge sort prefix sum Binary search Fibonacci Dijkstra
+'''
+
+# output
+'''
+YES
+vwz
+'''
+
+a = [chr(i) for i in range(65, 91)]
+s = ''.join(input().upper().split())
+s = set([i for i in s])
+t = [i for i in a if i not in s]
+print('NO' if len(t) == 0 else 'YES', ''.join(t).lower(), sep='\n')
