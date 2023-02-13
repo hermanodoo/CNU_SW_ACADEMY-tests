@@ -1,0 +1,20 @@
+'''Follow the comments'''
+# on a grid, laser pointer is situated at coordinate x1, y1
+# it can shoot laser in one of the four directions(up, down, left, right)
+# it's trying to hit an object placed at coordinate x2, y2
+# you can place as many mirrors as you want which can reflect laser at 90 degees to help with the objective
+# find out how many mirrors are needed to hit the object
+
+# input
+'''
+1 2 4 4
+'''
+
+# output
+'''
+1
+'''
+
+import sys
+x, y, a, b = map(int, sys.stdin.readline().rstrip().split())
+print(0 if (x == a or y == b) else 1)
