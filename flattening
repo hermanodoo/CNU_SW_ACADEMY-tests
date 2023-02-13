@@ -1,0 +1,24 @@
+'''Follow the comments'''
+# there's area which has heaps of dirt that need flattening
+# you're to flatten them to the lowest heap among the heaps
+# it takes about 1 hour to flatten just 1 point of the heap
+# find out total time to flatten all the heaps
+
+# input
+'''
+5
+1 3 1 2 1
+'''
+
+# output
+'''
+3
+'''
+
+n = int(input())
+
+uneven = list(map(int, input().split()))
+mini = min(uneven)
+for i in range(n):
+	uneven[i] -= mini
+print(sum(uneven))
