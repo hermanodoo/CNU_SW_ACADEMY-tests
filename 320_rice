@@ -1,0 +1,28 @@
+'''Follow the comments'
+# it is told that a master sushi chef is able to pick just 320 rice grains as he make one sushi
+# he have to serve a sushi that has closest to 320 rice grains 
+# among the given list of number of rice grains, pick which sushi he has to serve
+
+# input
+'''
+3
+280 400 330
+'''
+
+# output
+
+'''
+3
+'''
+
+n = int(input())
+s = list(map(int, input().split()))
+a = 1001
+for i in range(n):
+    diff =  abs(320 - s[i])
+    
+    if diff < a:
+        a = diff
+        ind = i
+
+print(ind+1)
