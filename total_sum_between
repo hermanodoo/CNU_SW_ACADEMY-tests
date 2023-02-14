@@ -1,0 +1,50 @@
+'''Follow the comments'''
+# for a given array of numbers
+# find the total sum between two indices
+# inputs are 
+# 1st line: length of array, test cases
+# 2nd line: array of numbers
+# 3rd for iteration of test cases: indices of array
+# the first index is 1 for this problem
+
+# input
+'''
+4 10
+1 2 3 4
+1 1
+1 2
+1 3
+1 4
+2 2
+2 3
+2 4
+3 3
+3 4
+4 4
+'''
+
+# output
+'''
+1
+3
+6
+10
+2
+5
+9
+3
+7
+4
+'''
+
+'''
+n, m = map(int, input().split())
+s = list(map(int, input().split()))
+
+for _ in range(m):
+    a, b = map(int, input().split())
+    if a == b:
+        print(s[a-1])
+    else:
+        print(sum(s[a-1:b]))
+'''
