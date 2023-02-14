@@ -1,0 +1,28 @@
+'''Follow the comments'''
+# for the given array of numbers
+# find the total increment as you go through iteration
+# inputs are 
+# 1st line: items in array
+# 2nd line: array of numbers
+
+# input
+'''
+3
+4 5 6
+'''
+
+# output
+'''
+4 9 15
+'''
+
+# above example shows
+# 4 4+5 4+5+6
+
+n = int(input())
+s = list(map(int, input().split()))
+t = 0
+for i in range(n):
+	t += s[i]
+	s[i] = t
+print(*s)
