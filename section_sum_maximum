@@ -1,0 +1,32 @@
+'''Follow the comments'''
+# for the given array of numbers
+# find out the maximum value of sum
+# between arbitrary indices
+# inputs are
+# 1st: length of array
+# 2nd: array
+
+# input
+'''
+4
+-1 3 -2 4
+'''
+
+# output
+'''
+5
+'''
+
+# for the above example
+# maximum sum is derived by indices [1:] => 3 + -2 + 4 = 5
+
+n = int(input())
+s = list(map(int, input().split()))
+maxed = set()
+
+for i in range(n):
+    for j in range(1,n+1):
+        if i + j <= n:
+            maxed.add(sum(s[i:i+j]))
+maxed = sorted(maxed)
+print(maxed[-1])
