@@ -1,0 +1,38 @@
+'''Follow the comments'''
+# you are given length of letter, test case numbers and a string
+# for given test cases, find how many times 'e' showed up in the string
+# you're to count all the 'e's in the segment[l to r]
+# index starts at 1
+
+# input
+'''
+3 6
+yee
+1 1
+1 2
+1 3
+2 2
+2 3
+3 3
+'''
+
+# output
+'''
+0
+1
+2
+1
+2
+1
+'''
+
+n, m = map(int, input().split())
+s = [(1 if i == 'e' else 0) for i in input()]
+for _ in range(m):
+    l, r = map(int, input().split())
+    tot = 0
+    for i in range(l-1, r):
+        tot += s[i]
+    print(tot)
+    
+    
